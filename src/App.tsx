@@ -292,7 +292,7 @@ export default function App() {
                   Live Demo
                 </a>
                 <a
-                  href="#"
+                  href="https://github.com/letscode5108/BuildSkills-AI"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors duration-200"
@@ -327,6 +327,95 @@ export default function App() {
               </div>
             </div>
           </div>
+
+               {/* DocuQuery */}
+     <div className="grid md:grid-cols-2 gap-8 items-center">
+       <div className="order-2 md:order-1">
+         <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">DocuQuery</h3>
+         <p className="text-gray-300 mb-4">
+           A full-stack application for uploading, managing, and querying PDF documents using AI-powered semantic search technology.
+         </p>
+         <div className="mb-6">
+           <h4 className="text-lg font-semibold mb-2 text-gray-200">Key Features:</h4>
+           <ul className="space-y-2">
+             <li className="flex gap-2">
+               <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
+               <span>AI-powered semantic search for documents</span>
+             </li>
+             <li className="flex gap-2">
+               <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
+               <span>Document management with PostgreSQL</span>
+             </li>
+             <li className="flex gap-2">
+               <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
+               <span>Natural language processing with LangChain</span>
+             </li>
+             <li className="flex gap-2">
+               <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
+               <span>Responsive frontend with React</span>
+             </li>
+           </ul>
+         </div>
+         <div className="mb-6">
+           <h4 className="text-lg font-semibold mb-2 text-gray-200">Technologies:</h4>
+           <div className="flex flex-wrap gap-2">
+             {["React", "Tailwind CSS", "FastAPI", "LangChain", "REST APIs", "PostgreSQL", "PyMuPDF", "Cloudinary"].map((tech) => (
+               <span key={tech} className="px-3 py-1 bg-gray-800 rounded-full text-sm">
+                 {tech}
+               </span>
+             ))}
+           </div>
+         </div>
+         <div className="flex gap-4">
+           <a
+             href="https://drive.google.com/file/d/11iOLC3qbmPTEpb7AMFGjdbiy1jUIyYKq/view?usp=drive_link"
+             target="_blank"
+             rel="noopener noreferrer"
+             className="flex items-center gap-2 px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
+           >
+             <ExternalLink size={16} />
+             Live Demo
+           </a>
+         </div>
+       </div>
+       <div className="order-1 md:order-2 bg-gray-800 rounded-xl overflow-hidden shadow-xl">
+         <div className="h-64 bg-gradient-to-r from-blue-500/20 to-indigo-600/20 flex items-center justify-center p-4">
+           <div className="w-full bg-gray-900 rounded-lg p-4 shadow-lg">
+             <div className="flex justify-between items-center mb-4">
+               <div className="flex items-center gap-2">
+                 <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">D</div>
+                 <span className="font-semibold">DocuQuery</span>
+               </div>
+               <div className="bg-blue-600/20 px-3 py-1 rounded-full text-blue-500 text-xs font-medium">
+                 AI Search
+               </div>
+             </div>
+             <div className="bg-gray-800 h-8 rounded mb-4 flex items-center px-3">
+               <div className="h-2 bg-gray-700 rounded w-3/4"></div>
+               <div className="ml-auto w-6 h-6 rounded-full bg-gray-700"></div>
+             </div>
+             <div className="space-y-3">
+               <div className="flex items-center gap-2">
+                 <div className="w-6 h-6 rounded bg-gray-700"></div>
+                 <div className="flex-1">
+                   <div className="h-2 bg-gray-800 rounded w-1/2 mb-1"></div>
+                   <div className="h-2 bg-gray-800 rounded w-1/4"></div>
+                 </div>
+               </div>
+               <div className="flex items-center gap-2">
+                 <div className="w-6 h-6 rounded bg-gray-700"></div>
+                 <div className="flex-1">
+                   <div className="h-2 bg-gray-800 rounded w-2/3 mb-1"></div>
+                   <div className="h-2 bg-gray-800 rounded w-1/3"></div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
 
           {/* TaskSync */}
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -413,94 +502,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* DocuQuery */}
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="order-2 md:order-1">
-              <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">DocuQuery</h3>
-              <p className="text-gray-300 mb-4">
-                A full-stack application for uploading, managing, and querying PDF documents using AI-powered semantic search technology.
-              </p>
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold mb-2 text-gray-200">Key Features:</h4>
-                <ul className="space-y-2">
-                  <li className="flex gap-2">
-                    <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                    <span>AI-powered semantic search for documents</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                    <span>Document management with PostgreSQL</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                    <span>Natural language processing with LangChain</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                    <span>Responsive frontend with React</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold mb-2 text-gray-200">Technologies:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["React", "Tailwind CSS", "FastAPI", "LangChain", "REST APIs", "PostgreSQL", "PyMuPDF", "Cloudinary"].map((tech) => (
-                    <span key={tech} className="px-3 py-1 bg-gray-800 rounded-full text-sm">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <a
-                  href="https://drive.google.com/file/d/11iOLC3qbmPTEpb7AMFGjdbiy1jUIyYKq/view?usp=drive_link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
-                >
-                  <ExternalLink size={16} />
-                  Live Demo
-                </a>
-              </div>
-            </div>
-            <div className="order-1 md:order-2 bg-gray-800 rounded-xl overflow-hidden shadow-xl">
-              <div className="h-64 bg-gradient-to-r from-blue-500/20 to-indigo-600/20 flex items-center justify-center p-4">
-                <div className="w-full bg-gray-900 rounded-lg p-4 shadow-lg">
-                  <div className="flex justify-between items-center mb-4">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">D</div>
-                      <span className="font-semibold">DocuQuery</span>
-                    </div>
-                    <div className="bg-blue-600/20 px-3 py-1 rounded-full text-blue-500 text-xs font-medium">
-                      AI Search
-                    </div>
-                  </div>
-                  <div className="bg-gray-800 h-8 rounded mb-4 flex items-center px-3">
-                    <div className="h-2 bg-gray-700 rounded w-3/4"></div>
-                    <div className="ml-auto w-6 h-6 rounded-full bg-gray-700"></div>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded bg-gray-700"></div>
-                      <div className="flex-1">
-                        <div className="h-2 bg-gray-800 rounded w-1/2 mb-1"></div>
-                        <div className="h-2 bg-gray-800 rounded w-1/4"></div>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded bg-gray-700"></div>
-                      <div className="flex-1">
-                        <div className="h-2 bg-gray-800 rounded w-2/3 mb-1"></div>
-                        <div className="h-2 bg-gray-800 rounded w-1/3"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Achievements Section */}
       <section id="achievements" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
