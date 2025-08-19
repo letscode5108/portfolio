@@ -1,627 +1,616 @@
+import React, { useState, useEffect } from "react";
+import {
+  Github,
+  ExternalLink,
+  Play,
+  Mail,
+  Phone,
+  Award,
+  GraduationCap,
+} from "lucide-react";
 
-import { useState, useEffect } from "react";
-import {  ExternalLink, Mail, Linkedin, Code, Server, Database, Award, Briefcase, ChevronRight, Check, ArrowRight } from "lucide-react";
+// Project Dataset - Easy to update
+const projectsData = [
+  {
+    id: 1,
+    title: "BuildSkills AI",
+    description:
+      "AI-powered platform helping developers transition from tutorial-based to project-based learning with personalized learning paths and step-by-step project guides.",
+    image:
+      "https://res.cloudinary.com/df7mlw5t9/image/upload/v1755594159/build-skill-cover-image_pl7m2o.png",
+    technologies: [
+      "React",
+      "Tailwind",
+      "Node.js",
+      "Express.js",
+      "Gemini API",
+      "Prisma",
+      "JWT Authentication",
+      "REST APIs",
+    ],
+    liveLink: "https://build-skills-ai.vercel.app/",
+    githubLink: "https://github.com/letscode5108/BuildSkills-AI",
+    videoLink: "",
+    featured: true,
+  },
+  {
+    id: 2,
+    title: "DocuQuery",
+    description:
+      "Full-stack application for uploading, managing and querying PDF documents using AI-powered semantic search with natural language processing.",
+    image:
+      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=300&fit=crop",
+    technologies: [
+      "React",
+      "Tailwind CSS",
+      "FastAPI",
+      "LangChain",
+      "REST APIs",
+      "PostgreSQL",
+      "PyMuPDF",
+      "Cloudinary",
+    ],
+    liveLink: "#",
+    githubLink: "https://github.com/letscode5108/DocuQuery",
+    videoLink:
+      "https://drive.google.com/file/d/11iOLC3qbmPTEpb7AMFGjdbiy1jUIyYKq/view",
+    featured: true,
+  },
+  {
+    id: 3,
+    title: "LinkNestAI",
+    description:
+      ":Automatic metadata extraction and AI-powered categorization Intelligent Search: Full-text search with tag filtering Content analysis using Google Gemini AI Secure Authentication: JWT-based user management",
+    image:
+      "https://res.cloudinary.com/df7mlw5t9/image/upload/v1755594159/link-keeper-cover-image_eyll5c.png",
+    technologies: [
+      "React",
+      "Node.js",
+      "AI/ML",
+      "Chatbot Development",
+      "Database Management",
+    ],
+    liveLink: "https://linknestai.vercel.app",
+    githubLink: "https://github.com/letscode5108/LinkNest_AI",
+    videoLink:
+      "https://www.loom.com/share/27045ec8443a4418b208c5fe22bfe86c?sid=56b7cfac-a657-4a39-bcc1-157b08f83dc6",
+    featured: false,
+  },
+  {
+    id: 4,
+    title: "HealthSnap",
+    description:
+      "AI-Powered Medical Report Analysis Platform Transform your medical reports into actionable insights with cutting-edge AI technology. Upload PDFs or images and get instant parameter extraction, trend analysis, and personalized health recommendations.",
+    image:
+      "https://res.cloudinary.com/df7mlw5t9/image/upload/v1755603076/medical-cover-image_ls8mtu.png",
+    technologies: ["Next.js", "Cloudinary", "prisma", "Express.js"],
+    liveLink: "",
+    githubLink: "https://github.com/letscode5108/HealthSnap",
+    videoLink:
+      "https://drive.google.com/file/d/1_Qdkgv_8tV_5WWkMhZpgUZnlmqXGsBer/view",
+    featured: false,
+  },
+  {
+    id: 5,
+    title: "weather app",
+    description:
+      "A weather application that provides real-time weather updates and forecasts.",
+    image:
+      "https://res.cloudinary.com/df7mlw5t9/image/upload/v1755594159/weather-app-cover-image_pgoduf.png",
+    technologies: ["React", "Node.js", "tailwindcss"],
+    liveLink: "https://weather-info-two.vercel.app",
+    githubLink: "https://github.com/letscode5108/WeatherInfo",
+    videoLink: "",
+    featured: false,
+  },
+];
 
-export default function App() {
+// All Skills in one array for infinite scroll
+const allSkills = [
+  "Java",
+  "Python",
+  "C",
+  "Docker",
+  "AWS",
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Redux",
+  "TailwindCSS",
+  "Shadcn UI",
+  "NodeJS",
+  "Express JS",
+  "FastAPI",
+  "REST APIs",
+  "JWT Authentication",
+  "PostgreSQL",
+  "Prisma ORM",
+  "Git",
+  "LangChain",
+  "Gemini AI",
+  "Cloudinary",
+
+];
+
+const Portfolio = () => {
   const [activeSection, setActiveSection] = useState("home");
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [currentRole, setCurrentRole] = useState(0);
+
+  const roles = [
+    "Problem Solver",
+    "Backend Developer",
+    "Frontend Developer",
+    "Full Stack Developer",
+    
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId : string) => {
+  useEffect(() => {
+    const roleInterval = setInterval(() => {
+      setCurrentRole((prev) => (prev + 1) % roles.length);
+    }, 2000);
+    return () => clearInterval(roleInterval);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
-    setIsMobileMenuOpen(false);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-950 text-gray-100 font-sans">
-      {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? "bg-gray-900/95 shadow-lg" : "bg-transparent"}`}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">
-             
-              </span>
-            </div>
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex md:items-center md:space-x-6">
-              {["home", "skills", "projects", "achievements"].map((section) => (
+    <div className="bg-black text-white min-h-screen">
+      {/* Sticky Navigation */}
+      <nav
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+          isScrolled
+            ? "bg-black/90 backdrop-blur-xl border-b border-gray-800"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-center">
+            <div className="hidden md:flex space-x-8">
+              {[
+                "home",
+                "experience",
+                "achievements",
+                "projects",
+                "skills",
+                "education",
+                "contact",
+              ].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                    activeSection === section
-                      ? "text-blue-400"
-                      : "text-gray-300 hover:text-blue-400"
+                  className={`capitalize hover:text-gray-300 transition-all duration-300 relative ${
+                    activeSection === section ? "text-white" : "text-gray-500"
                   }`}
                 >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                  {section}
+                  {activeSection === section && (
+                    <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-white transition-all duration-300"></div>
+                  )}
                 </button>
               ))}
-             
-             
-    
-    
-    
-    
-    
-            </div>
-            {/* Mobile menu button */}
-            <div className="md:hidden flex items-center">
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded-md text-gray-400 hover:text-white focus:outline-none"
-              >
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  {isMobileMenuOpen ? (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  ) : (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  )}
-                </svg>
-              </button>
             </div>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-gray-800 shadow-lg">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {["home", "skills", "projects", "achievements"].map((section) => (
-                <button
-                  key={section}
-                  onClick={() => scrollToSection(section)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left ${
-                    activeSection === section
-                      ? "bg-gray-700 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white"
-                  }`}
-                >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
-                </button>
-              ))}
-              <a
-                href="mailto:chatterjeeankita548@gmail.com"
-                className="block px-3 py-2 rounded-md text-base font-medium bg-blue-600 hover:bg-blue-700 text-white"
-              >
-                Contact
-              </a>
-            </div>
-          </div>
-        )}
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-5 gap-10 items-center">
-          <div className="md:col-span-3">
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
-              <span className="block">Hello, I'm</span>
-              <span className="block mt-2 bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">
-                Ankita Chatterjee
-              </span>
+      <section
+        id="home"
+        className="min-h-[90vh] flex items-center justify-center relative overflow-hidden pb-12"
+      >
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-gray-900 to-black opacity-50"></div>
+        </div>
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <div className="animate-fade-in-up space-y-4">
+            <h1 className="text-5xl md:text-7xl font-thin mb-2 tracking-wider">
+              ANKITA
             </h1>
-            <h2 className="text-xl sm:text-2xl text-gray-300 mb-6">
-              Software Engineer & Full Stack Developer
+            <h2 className="text-2xl md:text-4xl font-light text-gray-300 mb-4 tracking-wide">
+              CHATTERJEE
             </h2>
-            <p className="text-gray-400 mb-8 text-lg">
-              Building innovative solutions with React, Node.js, and AI technologies. 
-              I specialize in developing responsive and scalable web applications with 
-              a focus on user experience and performance.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="https://github.com/letscode5108"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors duration-200"
-              >
-                
-                GitHub
-              </a>
-              <a
-                href="www.linkedin.com/in/ankita-chatterjee-470980261"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors duration-200"
-              >
-                <Linkedin size={18} />
-                LinkedIn
-              </a>
-              <a
-                href=""
-                className="flex items-center gap-2 px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
-              >
-                <Mail size={18} />
-                chatterjeeankita548@gmail.com
-              </a>
+            <div className="h-8 mb-4">
+              <p className="text-lg md:text-xl text-gray-400 font-light tracking-wide transition-all duration-500">
+                {roles[currentRole]}
+              </p>
             </div>
-          </div>
-          <div className="md:col-span-2 flex justify-center">
-            <div className="relative">
-              <div className="w-64 h-64 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 absolute blur-xl opacity-20 animate-pulse"></div>
-              <div className="w-64 h-64 rounded-full border-2 border-blue-500 relative z-10 overflow-hidden flex items-center justify-center bg-gray-800">
-                 <img 
-                  src="https://res.cloudinary.com/dj8f2bytx/image/upload/v1747636672/photo_ig6jhb.png" 
-                  alt="Ankita Chatterjee"
-                  className="w-full h-full object-cover"
-                />
+
+            {/* GitHub Contributions Calendar */}
+            {/* <div className="mb-6 mx-auto max-w-lg">
+              <GitHubCalendar
+                username="letscode5108" // Replace with your actual GitHub username
+                colorScheme="dark"
+                blockSize={20}
+                blockMargin={4}
+                fontSize={12}
+                hideColorLegend
+                hideMonthLabels
+                
+              />
+
+            </div> */}
+
+            <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-8 text-gray-400 text-sm">
+              <div className="flex items-center space-x-2">
+                <Phone size={25} className="text-white" />
+                <span className="font-light">+91 8777743599</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Mail size={25} className="text-white" />
+                <span className="font-light text-2xl">
+                  chatterjeeankita548@gmail.com
+                </span>
               </div>
             </div>
+            <button
+              onClick={() => scrollToSection("projects")}
+              className="mt-6 border border-white px-6 py-3 text-sm font-light tracking-wider hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105"
+            >
+              EXPLORE WORK
+            </button>
           </div>
         </div>
       </section>
-
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12 text-center">Technical Skills</h2>
-        <div className="grid gap-8 md:grid-cols-3">
-          {/* Frontend */}
-          <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10">
-            <div className="mb-4 p-3 bg-blue-600/20 rounded-lg w-fit">
-              <Code size={28} className="text-blue-500" />
+      <section id="skills" className="py-12 border-t border-gray-800">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-thin text-center mb-10 tracking-wider">
+            SKILLS
+          </h2>
+          <div className="space-y-6">
+            {/* First line - scrolling right */}
+            <div className="relative overflow-hidden">
+              <div
+                className="flex space-x-6"
+                style={{
+                  animation: "scroll-right 15s linear infinite",
+                }}
+              >
+                {/* First set of skills */}
+                {allSkills.map((skill, index) => (
+                  <div
+                    key={`right-first-${index}`}
+                    className="flex-shrink-0 border border-gray-800 px-4 py-2 hover:border-white transition-all duration-300 whitespace-nowrap"
+                  >
+                    <span className="text-gray-300 font-light tracking-wide text-xl">
+                      {skill}
+                    </span>
+                  </div>
+                ))}
+                {/* Duplicate set for infinite scroll */}
+                {allSkills.map((skill, index) => (
+                  <div
+                    key={`right-second-${index}`}
+                    className="flex-shrink-0 border border-gray-800 px-4 py-2 hover:border-white transition-all duration-300 whitespace-nowrap"
+                  >
+                    <span className="text-gray-300 font-light tracking-wide text-sm">
+                      {skill}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <h3 className="text-xl font-bold mb-4">Frontend</h3>
-            <ul className="space-y-2">
-              {["React", "Redux", "JavaScript", "TypeScript", "TailwindCSS", "Shadcn UI"].map((skill) => (
-                <li key={skill} className="flex items-center gap-2">
-                  <Check size={16} className="text-blue-500" />
-                  <span>{skill}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
 
-          {/* Backend */}
-          <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10">
-            <div className="mb-4 p-3 bg-blue-600/20 rounded-lg w-fit">
-              <Server size={28} className="text-blue-500" />
+            {/* Second line - scrolling left */}
+            <div className="relative overflow-hidden">
+              <div
+                className="flex space-x-6"
+                style={{
+                  animation: "scroll-left 15s linear infinite",
+                }}
+              >
+                {/* First set of skills */}
+                {allSkills.map((skill, index) => (
+                  <div
+                    key={`left-first-${index}`}
+                    className="flex-shrink-0 border border-gray-800 px-4 py-2 hover:border-white transition-all duration-300 whitespace-nowrap"
+                  >
+                    <span className="text-gray-300 font-light tracking-wide text-xl">
+                      {skill}
+                    </span>
+                  </div>
+                ))}
+                {/* Duplicate set for infinite scroll */}
+                {allSkills.map((skill, index) => (
+                  <div
+                    key={`left-second-${index}`}
+                    className="flex-shrink-0 border border-gray-800 px-4 py-2 hover:border-white transition-all duration-300 whitespace-nowrap"
+                  >
+                    <span className="text-gray-300 font-light tracking-wide text-sm">
+                      {skill}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <h3 className="text-xl font-bold mb-4">Backend</h3>
-            <ul className="space-y-2">
-              {["NodeJS", "Express JS", "FastAPI", "REST APIs", "JWT Authentication", "WebSockets"].map((skill) => (
-                <li key={skill} className="flex items-center gap-2">
-                  <Check size={16} className="text-blue-500" />
-                  <span>{skill}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Other Skills */}
-          <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10">
-            <div className="mb-4 p-3 bg-blue-600/20 rounded-lg w-fit">
-              <Database size={28} className="text-blue-500" />
-            </div>
-            <h3 className="text-xl font-bold mb-4">Languages & Tools</h3>
-            <ul className="space-y-2">
-              {["Java", "Python", "C", "PostgreSQL", "Prisma ORM", "Git", "LangChain", "Gemini AI", "Cloudinary"].map((skill) => (
-                <li key={skill} className="flex items-center gap-2">
-                  <Check size={16} className="text-blue-500" />
-                  <span>{skill}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>
+      {/* Add this CSS to your global styles or component */}
+      <style>{`
+        @keyframes scroll-right {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(0%);
+          }
+        }
 
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+      `}</style>
+      {/* Experience Section */}
+      <section id="experience" className="py-12 border-t border-gray-800">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-thin text-center mb-10 tracking-wider">
+            EXPERIENCE
+          </h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="border border-gray-800 p-6 hover:border-white transition-all duration-500">
+              <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                <div>
+                  <h3 className="text-xl font-light mb-1">
+                    Frontend Development Intern
+                  </h3>
+                  <p className="text-lg text-gray-400 font-light">SnapshreAI</p>
+                </div>
+                <div className="text-gray-400 font-light text-sm mt-2 md:mt-0">
+                  July 2025 - Present
+                </div>
+              </div>
+              <div className="space-y-2 text-gray-300 font-light text-md">
+                <p>
+                  Contributing to frontend development of AI-powered software
+                  solutions using modern web technologies
+                </p>
+                <p>
+                  Developing responsive user interfaces and optimizing user
+                  experience across web applications
+                </p>
+                <p>
+                  Collaborating with design and backend teams to implement
+                  scalable frontend architectures
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-4 text-center">Featured Projects</h2>
-        <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-          A selection of my recent development work showcasing my technical skills and problem-solving approach.
-        </p>
-
-        <div className="space-y-16">
-          {/* BuildSkills AI */}
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="order-2 md:order-1">
-              <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">BuildSkills AI</h3>
-              <p className="text-gray-300 mb-4">
-                An AI-powered platform helping developers transition from tutorial-based to project-based learning through personalized learning paths.
-              </p>
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold mb-2 text-gray-200">Key Features:</h4>
-                <ul className="space-y-2">
-                  <li className="flex gap-2">
-                    <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                    <span>Secure JWT authentication system</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                    <span>AI-generated personalized learning paths</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                    <span>Step-by-step project guides</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                    <span>Responsive UI and RESTful API integration</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold mb-2 text-gray-200">Technologies:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["React", "Tailwind", "Node.js", "ExpressJs", "Gemini API", "Prisma", "JWT", "REST APIs"].map((tech) => (
-                    <span key={tech} className="px-3 py-1 bg-gray-800 rounded-full text-sm">
-                      {tech}
-                    </span>
-                  ))}
+      <section id="projects" className="py-12 border-t border-gray-800">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-thin text-center mb-10 tracking-wider">
+            PROJECTS
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            {projectsData.map((project) => (
+              <div
+                key={project.id}
+                className="border border-gray-800 group hover:border-white transition-all duration-500 transform hover:scale-105"
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover filter  transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-all duration-500"></div>
                 </div>
-              </div>
-              <div className="flex gap-4">
-                <a
-                  href="https://build-skills-ai.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
-                >
-                  <ExternalLink size={16} />
-                  Live Demo
-                </a>
-                <a
-                  href="https://github.com/letscode5108/BuildSkills-AI"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors duration-200"
-                >
-                  
-                  Source Code
-                </a>
-              </div>
-            </div>
-            <div className="order-1 md:order-2 bg-gray-800 rounded-xl overflow-hidden shadow-xl">
-              <div className="h-64 bg-gradient-to-r from-blue-500/20 to-indigo-600/20 flex items-center justify-center p-4">
-                <div className="w-full bg-gray-900 rounded-lg p-4 shadow-lg">
-                  <div className="flex justify-between items-center mb-6">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">B</div>
-                      <span className="font-semibold">BuildSkills AI</span>
-                    </div>
-                    <div className="bg-blue-600/20 px-3 py-1 rounded-full text-blue-500 text-xs font-medium">
-                      AI Learning
-                    </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-light mb-3 tracking-wide">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 mb-4 text-m font-light leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {project.technologies.slice(0, 3).map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-1 border border-gray-700 text-gray-300 text-xs font-light tracking-wide"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 3 && (
+                      <span className="px-2 py-1 border border-gray-700 text-gray-400 text-xs font-light">
+                        +{project.technologies.length - 3}
+                      </span>
+                    )}
                   </div>
-                  <div className="space-y-3">
-                    <div className="h-3 bg-gray-800 rounded w-3/4"></div>
-                    <div className="h-3 bg-gray-800 rounded w-full"></div>
-                    <div className="h-3 bg-gray-800 rounded w-5/6"></div>
-                  </div>
-                  <div className="mt-6 grid grid-cols-2 gap-3">
-                    <div className="bg-gray-800 h-12 rounded flex items-center justify-center text-xs font-medium">Learning Path</div>
-                    <div className="bg-blue-600/20 h-12 rounded flex items-center justify-center text-blue-500 text-xs font-medium">Start Project</div>
+                  <div className="flex items-center space-x-4">
+                    <a
+                      href={project.liveLink}
+                      className="flex items-center space-x-1 text-white hover:text-gray-300 transition-colors duration-300"
+                    >
+                      <ExternalLink size={14} />
+                      <span className="text-xs font-light">LIVE</span>
+                    </a>
+                    <a
+                      href={project.githubLink}
+                      className="flex items-center space-x-1 text-white hover:text-gray-300 transition-colors duration-300"
+                    >
+                      <Github size={14} />
+                      <span className="text-xs font-light">CODE</span>
+                    </a>
+                    <a
+                      href={project.videoLink}
+                      className="flex items-center space-x-1 text-white hover:text-gray-300 transition-colors duration-300"
+                    >
+                      <Play size={14} />
+                      <span className="text-xs font-light">DEMO</span>
+                    </a>
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-
-               {/* DocuQuery */}
-     <div className="grid md:grid-cols-2 gap-8 items-center">
-       <div className="order-2 md:order-1">
-         <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">DocuQuery</h3>
-         <p className="text-gray-300 mb-4">
-           A full-stack application for uploading, managing, and querying PDF documents using AI-powered semantic search technology.
-         </p>
-         <div className="mb-6">
-           <h4 className="text-lg font-semibold mb-2 text-gray-200">Key Features:</h4>
-           <ul className="space-y-2">
-             <li className="flex gap-2">
-               <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-               <span>AI-powered semantic search for documents</span>
-             </li>
-             <li className="flex gap-2">
-               <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-               <span>Document management with PostgreSQL</span>
-             </li>
-             <li className="flex gap-2">
-               <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-               <span>Natural language processing with LangChain</span>
-             </li>
-             <li className="flex gap-2">
-               <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-               <span>Responsive frontend with React</span>
-             </li>
-           </ul>
-         </div>
-         <div className="mb-6">
-           <h4 className="text-lg font-semibold mb-2 text-gray-200">Technologies:</h4>
-           <div className="flex flex-wrap gap-2">
-             {["React", "Tailwind CSS", "FastAPI", "LangChain", "REST APIs", "PostgreSQL", "PyMuPDF", "Cloudinary"].map((tech) => (
-               <span key={tech} className="px-3 py-1 bg-gray-800 rounded-full text-sm">
-                 {tech}
-               </span>
-             ))}
-           </div>
-         </div>
-         <div className="flex gap-4">
-           <a
-             href="https://drive.google.com/file/d/11iOLC3qbmPTEpb7AMFGjdbiy1jUIyYKq/view?usp=drive_link"
-             target="_blank"
-             rel="noopener noreferrer"
-             className="flex items-center gap-2 px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
-           >
-             <ExternalLink size={16} />
-             Live Demo
-           </a>
-         </div>
-       </div>
-       <div className="order-1 md:order-2 bg-gray-800 rounded-xl overflow-hidden shadow-xl">
-         <div className="h-64 bg-gradient-to-r from-blue-500/20 to-indigo-600/20 flex items-center justify-center p-4">
-           <div className="w-full bg-gray-900 rounded-lg p-4 shadow-lg">
-             <div className="flex justify-between items-center mb-4">
-               <div className="flex items-center gap-2">
-                 <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">D</div>
-                 <span className="font-semibold">DocuQuery</span>
-               </div>
-               <div className="bg-blue-600/20 px-3 py-1 rounded-full text-blue-500 text-xs font-medium">
-                 AI Search
-               </div>
-             </div>
-             <div className="bg-gray-800 h-8 rounded mb-4 flex items-center px-3">
-               <div className="h-2 bg-gray-700 rounded w-3/4"></div>
-               <div className="ml-auto w-6 h-6 rounded-full bg-gray-700"></div>
-             </div>
-             <div className="space-y-3">
-               <div className="flex items-center gap-2">
-                 <div className="w-6 h-6 rounded bg-gray-700"></div>
-                 <div className="flex-1">
-                   <div className="h-2 bg-gray-800 rounded w-1/2 mb-1"></div>
-                   <div className="h-2 bg-gray-800 rounded w-1/4"></div>
-                 </div>
-               </div>
-               <div className="flex items-center gap-2">
-                 <div className="w-6 h-6 rounded bg-gray-700"></div>
-                 <div className="flex-1">
-                   <div className="h-2 bg-gray-800 rounded w-2/3 mb-1"></div>
-                   <div className="h-2 bg-gray-800 rounded w-1/3"></div>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
- </section>
-
-          {/* TaskSync */}
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="order-2">
-              <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">TaskSync</h3>
-              <p className="text-gray-300 mb-4">
-                A comprehensive task management platform for remote teams with real-time communication capabilities and multi-team management.
-              </p>
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold mb-2 text-gray-200">Key Features:</h4>
-                <ul className="space-y-2">
-                  <li className="flex gap-2">
-                    <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                    <span>Multi-team management with JWT authentication</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                    <span>Real-time team chat using WebSockets</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                    <span>Virtual meeting rooms integration</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <ChevronRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                    <span>Interactive dashboards with data visualization</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold mb-2 text-gray-200">Technologies:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["React", "Tailwind", "Node.js", "ExpressJs", "WebSocket", "Prisma", "REST APIs"].map((tech) => (
-                    <span key={tech} className="px-3 py-1 bg-gray-800 rounded-full text-sm">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <a
-                  href="https://github.com/letscode5108/TeamSync"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
-                >
-                
-                  GitHub Repo
-                </a>
-              </div>
-            </div>
-            <div className="order-1 bg-gray-800 rounded-xl overflow-hidden shadow-xl">
-              <div className="h-64 bg-gradient-to-r from-blue-500/20 to-indigo-600/20 flex items-center justify-center p-4">
-                <div className="w-full bg-gray-900 rounded-lg p-4 shadow-lg">
-                  <div className="flex justify-between items-center mb-4">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold">T</div>
-                      <span className="font-semibold">TaskSync</span>
-                    </div>
-                    <div className="bg-indigo-600/20 px-3 py-1 rounded-full text-indigo-500 text-xs font-medium">
-                      Team Dashboard
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3 mb-4">
-                    <div className="bg-gray-800 h-8 rounded"></div>
-                    <div className="bg-gray-800 h-8 rounded"></div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex gap-2 items-center">
-                      <div className="h-4 w-4 rounded-full bg-green-500"></div>
-                      <div className="h-2 bg-gray-800 rounded flex-1"></div>
-                    </div>
-                    <div className="flex gap-2 items-center">
-                      <div className="h-4 w-4 rounded-full bg-yellow-500"></div>
-                      <div className="h-2 bg-gray-800 rounded flex-1"></div>
-                    </div>
-                    <div className="flex gap-2 items-center">
-                      <div className="h-4 w-4 rounded-full bg-red-500"></div>
-                      <div className="h-2 bg-gray-800 rounded flex-1"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        </div>
+      </section>
 
       {/* Achievements Section */}
-      <section id="achievements" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12 text-center">Achievements & Education</h2>
-        
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Achievements */}
-          <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
-            <div className="mb-6 p-3 bg-blue-600/20 rounded-lg w-fit">
-              <Award size={28} className="text-blue-500" />
-            </div>
-            <h3 className="text-2xl font-bold mb-6">Achievements</h3>
-            
-            <div className="relative pl-8 pb-8 border-l border-gray-700">
-              <div className="absolute left-0 top-0 w-4 h-4 -ml-2 rounded-full bg-blue-600"></div>
-              <div className="mb-4">
-                <h4 className="text-xl font-bold text-blue-400">Smart India Hackathon</h4>
-                <p className="text-gray-400">Runner-Up</p>
+      <section id="achievements" className="py-12 border-t border-gray-800">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-thin text-center mb-10 tracking-wider">
+            ACHIEVEMENTS
+          </h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="border border-gray-800 p-6 hover:border-white transition-all duration-500">
+              <div className="flex items-start space-x-4 mb-4">
+                <Award className="text-white mt-1" size={20} />
+                <div>
+                  <h3 className="text-xl font-light mb-1">
+                    Smart India Hackathon 2024
+                  </h3>
+                  <p className="text-lg text-gray-400 font-light">Runner-Up</p>
+                </div>
               </div>
-              <ul className="space-y-2 text-gray-300">
-                <li className="flex gap-2">
-                  <ArrowRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                  <span>Contributed to the development of a Smart Classroom Management System</span>
-                </li>
-                <li className="flex gap-2">
-                  <ArrowRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                  <span>Built a chatbot providing subject-specific resources and videos</span>
-                </li>
-                <li className="flex gap-2">
-                  <ArrowRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                  <span>Worked on both backend and frontend development for core features</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Education */}
-          <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
-            <div className="mb-6 p-3 bg-blue-600/20 rounded-lg w-fit">
-              <Briefcase size={28} className="text-blue-500" />
-            </div>
-            <h3 className="text-2xl font-bold mb-6">Education</h3>
-            
-            <div className="relative pl-8 pb-8 border-l border-gray-700">
-              <div className="absolute left-0 top-0 w-4 h-4 -ml-2 rounded-full bg-blue-600"></div>
-              <div className="mb-4">
-                <h4 className="text-xl font-bold text-blue-400">Dr. Sudhir Chandra Sur Institute of Technology & Sports Complex</h4>
-                <p className="text-gray-400">Oct 2022 - Aug 2026</p>
+              <div className="space-y-2 text-gray-300 font-light text-xl">
+                <p>
+                  Contributed to the development of a Smart Classroom Management
+                  System
+                </p>
+                <p>
+                  Built a chatbot that provided subject-specific resources and
+                  videos
+                </p>
+                <p>
+                  Worked on both backend and frontend development for core
+                  features
+                </p>
               </div>
-              <ul className="space-y-2 text-gray-300">
-                <li className="flex gap-2">
-                  <ArrowRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                  <span>Bachelor of Technology in Computer Science and Engineering (B.Tech)</span>
-                </li>
-                <li className="flex gap-2">
-                  <ArrowRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                  <span>Kolkata, India</span>
-                </li>
-                <li className="flex gap-2">
-                  <ArrowRight size={18} className="text-blue-500 mt-1 flex-shrink-0" />
-                  <span>Key coursework: Data Structures & Algorithms, Computer Networks, DBMS, Operating Systems</span>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
       </section>
-
+      {/* Education Section */}
+      <section id="education" className="py-12 border-t border-gray-800">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-thin text-center mb-10 tracking-wider">
+            EDUCATION
+          </h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="border border-gray-800 p-6 hover:border-white transition-all duration-500">
+              <div className="flex items-start space-x-4 mb-4">
+                <GraduationCap className="text-white mt-1" size={20} />
+                <div className="flex-1">
+                  <h3 className="text-xl font-light mb-1">
+                    Bachelor of Technology
+                  </h3>
+                  <p className="text-lg text-gray-400 font-light mb-1">
+                    Computer Science and Engineering
+                  </p>
+                  <p className="text-gray-500 font- text-xl">
+                    Dr. Sudhir Chandra Sur Institute of Technology & Sports
+                    Complex
+                  </p>
+                </div>
+                <div className="text-gray-400 font-light text-right text-sm">
+                  <p>Oct 2022</p>
+                  <p>Aug 2026</p>
+                </div>
+              </div>
+              <div className="text-gray-400 font-light text-sm">
+                <p>Kolkata, India</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Contact Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto bg-gradient-to-b from-transparent to-gray-900/50 rounded-xl">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold mb-4">Let's Connect</h2>
-          <p className="text-gray-400 mb-8 max-w-lg mx-auto">
-            I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="mailto:chatterjeeankita548@gmail.com"
-              className="flex items-center gap-2 px-6 py-3 rounded-md bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
-            >
-              <Mail size={18} />
-              chatterjeeankita548@gmail.com
-            </a>
-            <a
-              href="https://github.com/letscode5108"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors duration-200"
-            >
-           
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors duration-200"
-            >
-              <Linkedin size={18} />
-              LinkedIn
-            </a>
-            <a
-              href="https://leetcode.com/u/chatterjeeankita548/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors duration-200"
-            >
-              <Code size={18} />
-              LeetCode
-            </a>
+      <section id="contact" className="py-12 border-t border-gray-800">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-thin mb-10 tracking-wider">
+            CONTACT
+          </h2>
+          <div className="max-w-2xl mx-auto space-y-6">
+            <p className="text-sm text-gray-300 font-light leading-relaxed">
+              I'm always open to discussing new opportunities, collaborating on
+              projects, or just having a chat about technology and innovation.
+            </p>
+            <div className="flex flex-col md:flex-row items-center justify-center space-y-3 md:space-y-0 md:space-x-6">
+              <a
+                href="mailto:chatterjeeankita548@gmail.com"
+                className="border border-white px-6 py-2 font-light tracking-wider hover:bg-white hover:text-black transition-all duration-500 text-sm"
+              >
+                EMAIL
+              </a>
+              <a
+                href="#"
+                className="border border-white px-6 py-2 font-light tracking-wider hover:bg-white hover:text-black transition-all duration-500 text-sm"
+              >
+                LINKEDIN
+              </a>
+              <a
+                href="#"
+                className="border border-white px-6 py-2 font-light tracking-wider hover:bg-white hover:text-black transition-all duration-500 text-sm"
+              >
+                GITHUB
+              </a>
+            </div>
           </div>
         </div>
       </section>
-
       {/* Footer */}
-      <footer className="py-8 px-4 border-t border-gray-800">
-        <div className="max-w-6xl mx-auto text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Ankita Chatterjee. All rights reserved.</p>
-        </div>
+      <footer className="py-6 text-center text-gray-500 border-t border-gray-800">
+        <p className="font-light text-sm">
+          &copy; 2025 Ankita Chatterjee. All rights reserved.
+        </p>
       </footer>
+      <style>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes infinite-scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-fade-in-up {
+          animation: fade-in-up 1s ease-out;
+        }
+
+        .animate-infinite-scroll {
+          animation: infinite-scroll 30s linear infinite;
+        }
+
+        .animate-infinite-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </div>
   );
-}
+};
+
+export default Portfolio;
