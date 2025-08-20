@@ -57,6 +57,21 @@ const projectsData = [
     featured: true,
   },
   {
+    id: 3,
+    title: "HealthSnap",
+    description:
+      "AI-Powered Medical Report Analysis Platform Transform your medical reports into actionable insights with cutting-edge AI technology. Upload PDFs or images and get instant parameter extraction, trend analysis, and personalized health recommendations.",
+    image:
+      "https://res.cloudinary.com/df7mlw5t9/image/upload/v1755603076/medical-cover-image_ls8mtu.png",
+    technologies: ["Next.js", "Cloudinary", "prisma", "Express.js"],
+    liveLink: "",
+    githubLink: "https://github.com/letscode5108/HealthSnap",
+    videoLink:
+      "https://drive.google.com/file/d/1_Qdkgv_8tV_5WWkMhZpgUZnlmqXGsBer/view",
+    featured: false,
+  },
+
+  {
     id: 4,
     title: "LinkNestAI",
     description:
@@ -74,20 +89,6 @@ const projectsData = [
     githubLink: "https://github.com/letscode5108/LinkNest_AI",
     videoLink:
       "https://www.loom.com/share/27045ec8443a4418b208c5fe22bfe86c?sid=56b7cfac-a657-4a39-bcc1-157b08f83dc6",
-    featured: false,
-  },
-  {
-    id: 3,
-    title: "HealthSnap",
-    description:
-      "AI-Powered Medical Report Analysis Platform Transform your medical reports into actionable insights with cutting-edge AI technology. Upload PDFs or images and get instant parameter extraction, trend analysis, and personalized health recommendations.",
-    image:
-      "https://res.cloudinary.com/df7mlw5t9/image/upload/v1755603076/medical-cover-image_ls8mtu.png",
-    technologies: ["Next.js", "Cloudinary", "prisma", "Express.js"],
-    liveLink: "",
-    githubLink: "https://github.com/letscode5108/HealthSnap",
-    videoLink:
-      "https://drive.google.com/file/d/1_Qdkgv_8tV_5WWkMhZpgUZnlmqXGsBer/view",
     featured: false,
   },
   {
