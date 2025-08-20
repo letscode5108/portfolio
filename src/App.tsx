@@ -57,7 +57,7 @@ const projectsData = [
     featured: true,
   },
   {
-    id: 3,
+    id: 4,
     title: "LinkNestAI",
     description:
       ":Automatic metadata extraction and AI-powered categorization Intelligent Search: Full-text search with tag filtering Content analysis using Google Gemini AI Secure Authentication: JWT-based user management",
@@ -77,7 +77,7 @@ const projectsData = [
     featured: false,
   },
   {
-    id: 4,
+    id: 3,
     title: "HealthSnap",
     description:
       "AI-Powered Medical Report Analysis Platform Transform your medical reports into actionable insights with cutting-edge AI technology. Upload PDFs or images and get instant parameter extraction, trend analysis, and personalized health recommendations.",
@@ -123,9 +123,13 @@ const allSkills = [
   "FastAPI",
   "REST APIs",
   "JWT Authentication",
+  "MongoDB",
+  "Next.js",
+  "OAuth",
   "PostgreSQL",
   "Prisma ORM",
   "Git",
+  "GitHub",
   "LangChain",
   "Gemini AI",
   "Cloudinary",
