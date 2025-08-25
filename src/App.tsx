@@ -75,7 +75,7 @@ const projectsData = [
     id: 4,
     title: "LinkNestAI",
     description:
-      ":Automatic metadata extraction and AI-powered categorization Intelligent Search: Full-text search with tag filtering Content analysis using Google Gemini AI Secure Authentication: JWT-based user management",
+      "Automatic metadata extraction and AI-powered categorization Intelligent Search.Full-text search with tag filtering Content analysis using Google Gemini AI Secure Authentication. JWT-based user management",
     image:
       "https://res.cloudinary.com/df7mlw5t9/image/upload/v1755594159/link-keeper-cover-image_eyll5c.png",
     technologies: [
@@ -91,9 +91,36 @@ const projectsData = [
       "https://www.loom.com/share/27045ec8443a4418b208c5fe22bfe86c?sid=56b7cfac-a657-4a39-bcc1-157b08f83dc6",
     featured: false,
   },
+
+  {
+    id: 6,
+    title: "Job Scheduling Microservice Backend API",
+    description:
+      "A scalable Node.js microservice for scheduling and managing jobs with production-ready architecture handling 10,000+ users and 6,000+ API requests/minute.",
+    image:
+      "https://images.unsplash.com/photo-1690585703267-de31ea667ef0?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    technologies: ["Express.js", "Node.js", "Redis", "PostgreSQL"],
+    liveLink: "",
+    githubLink: "https://github.com/letscode5108/jobscheduler",
+    videoLink: "",
+    featured: false,
+  },
+  {
+    id: 7,
+    title: "Property Management API",
+    description:
+      "A comprehensive RESTful API for managing real estate properties with user authentication, favorites, and recommendation features serving 200 users and 1000+ properties.",
+    image:
+      "https://plus.unsplash.com/premium_photo-1678565869434-c81195861939?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGJhY2tlbmR8ZW58MHx8MHx8fDA%3D",
+    technologies: ["Express.js", "Node.js", "JWT", "REST APIs", "MongoDB"],
+    liveLink: "",
+    githubLink: "https://github.com/letscode5108/propertysystem_backend",
+    videoLink: "",
+    featured: false,
+  },
   {
     id: 5,
-    title: "weather app",
+    title: "Weather app",
     description:
       "A weather application that provides real-time weather updates and forecasts.",
     image:
@@ -383,18 +410,18 @@ const Portfolio = () => {
                 </div>
               </div>
               <div className="space-y-2 text-gray-300 font-light text-md">
-                <p>
-                  Contributing to frontend development of AI-powered software
-                  solutions using modern web technologies
-                </p>
-                <p>
-                  Developing responsive user interfaces and optimizing user
-                  experience across web applications
-                </p>
-                <p>
-                  Collaborating with design and backend teams to implement
-                  scalable frontend architectures
-                </p>
+                <p> Improved user interface design and functionality while
+                   troubleshooting and fixing  application bugs,  Developed
+                responsive web applications.</p>  {/*Developed
+                responsive web applications with integrated chatbot solutions
+                for enhanced customer interaction - Debugged frontend and
+                backend code issues, reducing application errors and improving
+                system reliability -*/} <p>Collaborated with cross-functional teams to
+                implement scalable frontend architectures using modern web
+                technologies</p> <p> Managed deployment pipelines through Docker
+                containerization and AWS cloud services</p> <p>Contributing to
+                AI-powered software solutions with focus on frontend
+                optimization and user experience design</p>
               </div>
             </div>
           </div>
@@ -424,23 +451,23 @@ const Portfolio = () => {
                   <h3 className="text-lg font-light mb-3 tracking-wide">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 mb-4 text-m font-light leading-relaxed">
+                  <p className="text-gray-400 mb-4 text-xl font- leading-relaxed">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-1 mb-4">
-                    {project.technologies.slice(0, 3).map((tech) => (
+                    {project.technologies.slice(0, 9).map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 border border-gray-700 text-gray-300 text-xs font-light tracking-wide"
+                        className="px-2 py-1 border border-gray-700 text-gray-300 text-m font-light tracking-wide"
                       >
                         {tech}
                       </span>
                     ))}
-                    {project.technologies.length > 3 && (
+                    {/* {project.technologies.length > 3 && (
                       <span className="px-2 py-1 border border-gray-700 text-gray-400 text-xs font-light">
-                        +{project.technologies.length - 3}
+                        {project.technologies.length}
                       </span>
-                    )}
+                    )} */}
                   </div>
                   <div className="flex items-center space-x-4">
                     <a
@@ -448,21 +475,21 @@ const Portfolio = () => {
                       className="flex items-center space-x-1 text-white hover:text-gray-300 transition-colors duration-300"
                     >
                       <ExternalLink size={14} />
-                      <span className="text-xs font-light">LIVE</span>
+                      <span className="text-m font-light">LIVE</span>
                     </a>
                     <a
                       href={project.githubLink}
                       className="flex items-center space-x-1 text-white hover:text-gray-300 transition-colors duration-300"
                     >
                       <Github size={14} />
-                      <span className="text-xs font-light">CODE</span>
+                      <span className="text-m font-light">CODE</span>
                     </a>
                     <a
                       href={project.videoLink}
                       className="flex items-center space-x-1 text-white hover:text-gray-300 transition-colors duration-300"
                     >
                       <Play size={14} />
-                      <span className="text-xs font-light">DEMO</span>
+                      <span className="text-m font-light">DEMO</span>
                     </a>
                   </div>
                 </div>
