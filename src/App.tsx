@@ -405,11 +405,11 @@ const Portfolio = () => {
                   </h3>
                   <p className="text-lg text-gray-400 font-light">SnapshreAI</p>
                 </div>
-                <div className="text-gray-400 font-light text-sm mt-2 md:mt-0">
+                <div className="text-gray-400 font-light text-m mt-2 md:mt-0">
                   July 2025 - Present
                 </div>
               </div>
-              <div className="space-y-2 text-gray-300 font-light text-md">
+              <div className="space-y-2 text-gray-300 font- text-md">
                 <p> Improved user interface design and functionality while
                    troubleshooting and fixing  application bugs,  Developed
                 responsive web applications.</p>  {/*Developed
