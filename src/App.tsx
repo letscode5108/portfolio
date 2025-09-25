@@ -30,7 +30,7 @@ const projectsData = [
     ],
     liveLink: "https://build-skills-ai.vercel.app/",
     githubLink: "https://github.com/letscode5108/BuildSkills-AI",
-    videoLink: "",
+    videoLink: "https://www.loom.com/share/1b454a4972eb42c99dcff1683b32e99f",
     featured: true,
   },
   {
@@ -410,18 +410,30 @@ const Portfolio = () => {
                 </div>
               </div>
               <div className="space-y-2 text-gray-300 font- text-md">
-                <p> Improved user interface design and functionality while
-                   troubleshooting and fixing  application bugs,  Developed
-                responsive web applications.</p>  {/*Developed
+                <p>
+                  {" "}
+                  Improved user interface design and functionality while
+                  troubleshooting and fixing application bugs, Developed
+                  responsive web applications integrated chatbot solutions for enhanced user interaction.
+                </p>{" "}
+                {/*Developed
                 responsive web applications with integrated chatbot solutions
                 for enhanced customer interaction - Debugged frontend and
                 backend code issues, reducing application errors and improving
-                system reliability -*/} <p>Collaborated with cross-functional teams to
-                implement scalable frontend architectures using modern web
-                technologies</p> <p> Managed deployment pipelines through Docker
-                containerization and AWS cloud services</p> <p>Contributing to
-                AI-powered software solutions with focus on frontend
-                optimization and user experience design</p>
+                system reliability -*/}{" "}
+                <p>
+                  Collaborated with cross-functional teams to implement scalable
+                  frontend architectures using modern web technologies
+                </p>{" "}
+                <p>
+                  {" "}
+                  Managed deployment pipelines through Docker containerization
+                  and AWS cloud services
+                </p>{" "}
+                <p>
+                  Contributing to AI-powered software solutions with focus on
+                  frontend optimization and user experience design
+                </p>
               </div>
             </div>
           </div>
