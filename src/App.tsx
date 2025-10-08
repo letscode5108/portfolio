@@ -406,7 +406,7 @@ const Portfolio = () => {
                   <p className="text-lg text-gray-400 font-light">SnapshreAI</p>
                 </div>
                 <div className="text-gray-400 font-light text-m mt-2 md:mt-0">
-                  July 2025 - Present
+                  July 2025 - September 2025
                 </div>
               </div>
               <div className="space-y-2 text-gray-300 font- text-md">
@@ -414,7 +414,8 @@ const Portfolio = () => {
                   {" "}
                   Improved user interface design and functionality while
                   troubleshooting and fixing application bugs, Developed
-                  responsive web applications integrated chatbot solutions for enhanced user interaction.
+                  responsive web applications integrated chatbot solutions for
+                  enhanced user interaction.
                 </p>{" "}
                 {/*Developed
                 responsive web applications with integrated chatbot solutions
@@ -484,6 +485,8 @@ const Portfolio = () => {
                   <div className="flex items-center space-x-4">
                     <a
                       href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center space-x-1 text-white hover:text-gray-300 transition-colors duration-300"
                     >
                       <ExternalLink size={14} />
@@ -491,6 +494,8 @@ const Portfolio = () => {
                     </a>
                     <a
                       href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center space-x-1 text-white hover:text-gray-300 transition-colors duration-300"
                     >
                       <Github size={14} />
@@ -498,6 +503,8 @@ const Portfolio = () => {
                     </a>
                     <a
                       href={project.videoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center space-x-1 text-white hover:text-gray-300 transition-colors duration-300"
                     >
                       <Play size={14} />
