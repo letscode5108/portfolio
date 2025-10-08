@@ -92,19 +92,19 @@ const projectsData = [
     featured: false,
   },
 
-  {
-    id: 6,
-    title: "Job Scheduling Microservice Backend API",
-    description:
-      "A scalable Node.js microservice for scheduling and managing jobs with production-ready architecture handling 10,000+ users and 6,000+ API requests/minute.",
-    image:
-      "https://images.unsplash.com/photo-1690585703267-de31ea667ef0?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    technologies: ["Express.js", "Node.js", "Redis", "PostgreSQL"],
-    liveLink: "",
-    githubLink: "https://github.com/letscode5108/jobscheduler",
-    videoLink: "",
-    featured: false,
-  },
+  // {
+  //   id: 6,
+  //   title: "Job Scheduling Microservice Backend API",
+  //   description:
+  //     "A scalable Node.js microservice for scheduling and managing jobs with production-ready architecture handling 10,000+ users and 6,000+ API requests/minute.",
+  //   image:
+  //     "https://images.unsplash.com/photo-1690585703267-de31ea667ef0?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   technologies: ["Express.js", "Node.js", "Redis", "PostgreSQL"],
+  //   liveLink: "",
+  //   githubLink: "https://github.com/letscode5108/jobscheduler",
+  //   videoLink: "",
+  //   featured: false,
+  // },
   {
     id: 7,
     title: "Property Management API",
