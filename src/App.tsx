@@ -236,7 +236,6 @@ const Portfolio = () => {
           </div>
         </div>
       </nav>
-
       {/* Hero Section */}
       <section
         id="home"
@@ -258,7 +257,6 @@ const Portfolio = () => {
                 {roles[currentRole]}
               </p>
             </div>
-
             {/* GitHub Contributions Calendar */}
             {/* <div className="mb-6 mx-auto max-w-lg">
               <GitHubCalendar
@@ -273,11 +271,10 @@ const Portfolio = () => {
               />
 
             </div> */}
-
             <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-8 text-gray-400 text-sm">
               <div className="flex items-center space-x-2">
                 <Phone size={25} className="text-white" />
-                <span className="font-light">+91 8777743599</span>
+                <span className="font-light text-2xl">+91 8777743599</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail size={25} className="text-white" />
@@ -396,50 +393,95 @@ const Portfolio = () => {
           <h2 className="text-3xl md:text-4xl font-thin text-center mb-10 tracking-wider">
             EXPERIENCE
           </h2>
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto space-y-6">
+            {/* CardTree Experience */}
+            <div className="border border-gray-800 p-6 hover:border-white transition-all duration-500">
+              <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                <div>
+                  <h3 className="text-xl font-light mb-1">
+                    Full Stack Developer
+                  </h3>
+                  <a
+                    href="https://cardtr.ee/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg text-gray-400 font-light hover:text-white transition-colors"
+                  >
+                    cardtr.ee
+                  </a>
+                </div>
+                <div className="text-gray-400 font-light text-m mt-2 md:mt-0">
+                  October 2025 - Present
+                </div>
+              </div>
+              <div className="space-y-2 text-gray-300 font-light text-md">
+                <p>
+                  Backend-focused full stack development with emphasis on system
+                  architecture and automation solutions
+                </p>
+                <p>
+                  Implemented cloud infrastructure and services using Google
+                  Cloud Platform (GCP) for scalable application deployment
+                </p>
+                <p>
+                  Developed automation workflows to streamline development
+                  processes and improve operational efficiency
+                </p>
+                <p>
+                  Maintained frontend functionality by resolving critical bugs
+                  and ensuring seamless user experience
+                </p>
+                <p>
+                  Built analytics systems to track and optimize application
+                  performance metrics
+                </p>
+              </div>
+            </div>
+
+            {/* SnapshreAI Experience */}
             <div className="border border-gray-800 p-6 hover:border-white transition-all duration-500">
               <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-light mb-1">
                     Frontend Development Intern
                   </h3>
-                  <p className="text-lg text-gray-400 font-light">SnapshreAI</p>
+                  <a
+                    href="https://snapshare.ai/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg text-gray-400 font-light hover:text-white transition-colors"
+                  >
+                    snapshare.ai
+                  </a>
                 </div>
                 <div className="text-gray-400 font-light text-m mt-2 md:mt-0">
                   July 2025 - September 2025
                 </div>
               </div>
-              <div className="space-y-2 text-gray-300 font- text-md">
+              <div className="space-y-2 text-gray-300 font-light text-md">
                 <p>
-                  {" "}
                   Improved user interface design and functionality while
-                  troubleshooting and fixing application bugs, Developed
-                  responsive web applications integrated chatbot solutions for
-                  enhanced user interaction.
-                </p>{" "}
-                {/*Developed
-                responsive web applications with integrated chatbot solutions
-                for enhanced customer interaction - Debugged frontend and
-                backend code issues, reducing application errors and improving
-                system reliability -*/}{" "}
+                  troubleshooting and fixing application bugs, developed
+                  responsive web applications with integrated chatbot solutions
+                  for enhanced user interaction
+                </p>
                 <p>
                   Collaborated with cross-functional teams to implement scalable
                   frontend architectures using modern web technologies
-                </p>{" "}
+                </p>
                 <p>
-                  {" "}
                   Managed deployment pipelines through Docker containerization
                   and AWS cloud services
-                </p>{" "}
+                </p>
                 <p>
-                  Contributing to AI-powered software solutions with focus on
+                  Contributed to AI-powered software solutions with focus on
                   frontend optimization and user experience design
                 </p>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section>{" "}
       {/* Projects Section */}
       <section id="projects" className="py-12 border-t border-gray-800">
         <div className="container mx-auto px-6">
@@ -517,7 +559,6 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
-
       {/* Achievements Section */}
       <section id="achievements" className="py-12 border-t border-gray-800">
         <div className="container mx-auto px-6">
@@ -571,8 +612,7 @@ const Portfolio = () => {
                     Computer Science and Engineering
                   </p>
                   <p className="text-gray-500 font- text-xl">
-                    Dr. Sudhir Chandra Sur Institute of Technology & Sports
-                    Complex
+                  Maulana Abul Kalam Azad University of Technology, West Bengal
                   </p>
                 </div>
                 <div className="text-gray-400 font-light text-right text-sm">
@@ -594,25 +634,31 @@ const Portfolio = () => {
             CONTACT
           </h2>
           <div className="max-w-2xl mx-auto space-y-6">
-            <p className="text-sm text-gray-300 font-light leading-relaxed">
+            <p className="text-m text-gray-300 font-light leading-relaxed">
               I'm always open to discussing new opportunities, collaborating on
               projects, or just having a chat about technology and innovation.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center space-y-3 md:space-y-0 md:space-x-6">
               <a
                 href="mailto:chatterjeeankita548@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="border border-white px-6 py-2 font-light tracking-wider hover:bg-white hover:text-black transition-all duration-500 text-sm"
               >
                 EMAIL
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/ankita-chatterjee-470980261"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="border border-white px-6 py-2 font-light tracking-wider hover:bg-white hover:text-black transition-all duration-500 text-sm"
               >
                 LINKEDIN
               </a>
               <a
-                href="#"
+                href="https://github.com/letscode5108"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="border border-white px-6 py-2 font-light tracking-wider hover:bg-white hover:text-black transition-all duration-500 text-sm"
               >
                 GITHUB
@@ -623,7 +669,7 @@ const Portfolio = () => {
       </section>
       {/* Footer */}
       <footer className="py-6 text-center text-gray-500 border-t border-gray-800">
-        <p className="font-light text-sm">
+        <p className="font-light text-m">
           &copy; 2025 Ankita Chatterjee. All rights reserved.
         </p>
       </footer>
