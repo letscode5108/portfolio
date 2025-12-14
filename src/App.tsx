@@ -417,10 +417,6 @@ const Portfolio = () => {
                   architecture and automation solutions
                 </p>
                 <p>
-                  Implemented cloud infrastructure and services using Google
-                  Cloud Platform (GCP) for scalable application deployment
-                </p>
-                <p>
                   Developed automation workflows to streamline development
                   processes and improve operational efficiency
                 </p>
@@ -429,7 +425,7 @@ const Portfolio = () => {
                   and ensuring seamless user experience
                 </p>
                 <p>
-                  Built analytics systems to track and optimize application
+                  Built analytics systems to track  application
                   performance metrics
                 </p>
               </div>
