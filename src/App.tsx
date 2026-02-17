@@ -50,10 +50,10 @@ const projectsData = [
       "PyMuPDF",
       "Cloudinary",
     ],
-    liveLink: "#",
+    liveLink: "https://docu-query-qv4p.vercel.app/",
     githubLink: "https://github.com/letscode5108/DocuQuery",
     videoLink:
-      "https://drive.google.com/file/d/11iOLC3qbmPTEpb7AMFGjdbiy1jUIyYKq/view",
+      "https://www.loom.com/share/76f2149881d94b2888ff83b5600df899",
     featured: true,
   },
   {
