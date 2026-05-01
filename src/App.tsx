@@ -53,7 +53,7 @@ const projectsData = [
     liveLink: "https://docu-query-qv4p.vercel.app/",
     githubLink: "https://github.com/letscode5108/DocuQuery",
     videoLink:
-      "https://www.loom.com/share/76f2149881d94b2888ff83b5600df899",
+      "https://www.loom.com/share/2f362dc7fc0f411ab57c6d5b95e47d43",
     featured: true,
   },
   {
