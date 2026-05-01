@@ -408,26 +408,22 @@ const Portfolio = () => {
                   </a>
                 </div>
                 <div className="text-gray-400 font-light text-m mt-2 md:mt-0">
-                  October 2025 - Present
+                  October 2025 - April 2026
                 </div>
               </div>
               <div className="space-y-2 text-gray-300 font-light text-md">
-                <p>
-                  Backend-focused full stack development with emphasis on system
-                  architecture and automation solutions
-                </p>
-                <p>
-                  Developed automation workflows to streamline development
-                  processes and improve operational efficiency
-                </p>
-                <p>
-                  Maintained frontend functionality by resolving critical bugs
-                  and ensuring seamless user experience
-                </p>
-                <p>
-                  Built analytics systems to track  application
-                  performance metrics
-                </p>
+          <p>
+  Worked on payment integration using Dodo supporting subscription-based plans, one-time purchases, and usage-limited plans with real-time quota tracking and automated access restriction upon limit breach
+</p>
+<p>
+  Built a referral system from scratch with full tracking, reward attribution, and value calculation to drive user acquisition and platform growth
+</p>
+<p>
+  Developed admin panel for user and plan management, implemented spam prevention with automated account blocking, and handled transactional email delivery using AWS SES
+</p>
+<p>
+  Implemented role-based access control (RBAC) for organization-level and individual-level permission management, built GCP data pipelines for user analytics, and resolved backend bugs to ensure production stability
+</p>
               </div>
             </div>
 
