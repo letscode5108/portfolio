@@ -67,7 +67,7 @@ const projectsData = [
     liveLink: "",
     githubLink: "https://github.com/letscode5108/HealthSnap",
     videoLink:
-      "https://drive.google.com/file/d/1_Qdkgv_8tV_5WWkMhZpgUZnlmqXGsBer/view",
+     "https://www.loom.com/share/c3717966224c4b6cbf088c5884a33493",
     featured: false,
   },
 
