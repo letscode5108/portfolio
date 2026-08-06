@@ -94,7 +94,7 @@ const projectsData = [
 
   {
     id: 6,
-    title: "tunescope-Music Catalog Insights Platform",
+    title: "TuneScope-Music Catalog Insights Platform",
     description:
       'A full-stack app that lets a user search a public music catalog, save songs to their own library, view analytics on that library, and get an AI-generated trend summary.',
     image:
@@ -105,7 +105,7 @@ const projectsData = [
     videoLink: "https://www.loom.com/share/19bbdb4cdb184acc8090a247c2c85b4c",
     featured: false,
   },
-  {
+   {
     id: 7,
     title: "Property Management API",
     description:
@@ -115,6 +115,19 @@ const projectsData = [
     technologies: ["Express.js", "Node.js", "JWT", "REST APIs", "MongoDB"],
     liveLink: "",
     githubLink: "https://github.com/letscode5108/propertysystem_backend",
+    videoLink: "",
+    featured: false,
+  },
+  {
+    id: 8,
+    title: "Claim Processing Pipeline",
+    description:
+      "A FastAPI service that processes medical insurance claim PDFs using LangGraph to orchestrate multi-agent document extraction powered by Groq Vision (Llama 4 Scout).",
+    image:
+      "https://plus.unsplash.com/premium_photo-1678565869434-c81195861939?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGJhY2tlbmR8ZW58MHx8MHx8fDA%3D",
+    technologies: ["LangGraph", "FAST Api", "REST APIs" ],
+    liveLink: "",
+    githubLink: "https://github.com/letscode5108/Claim-Processing",
     videoLink: "",
     featured: false,
   },
