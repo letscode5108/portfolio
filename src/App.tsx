@@ -120,7 +120,7 @@ const projectsData = [
   },
   {
     id: 8,
-    title: "Claim Processing Pipeline",
+    title: "Claim Processing Pipeline ",
     description:
       "A FastAPI service that processes medical insurance claim PDFs using LangGraph to orchestrate multi-agent document extraction powered by Groq Vision (Llama 4 Scout).",
     image:
@@ -171,6 +171,7 @@ const allSkills = [
   "Git",
   "GitHub",
   "Gemini AI",
+  "LangGraph",
   "Cloudinary",
 
 ];
